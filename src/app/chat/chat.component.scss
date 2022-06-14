@@ -1,0 +1,200 @@
+input:focus-visible {
+  outline: none;
+}
+.query-icon {
+  cursor: pointer;
+}
+.user_list {
+  cursor: pointer;
+  width: 100%;
+}
+.user_list:hover {
+  background-color: #77B3D4;
+  color: white;
+}
+.user_name {
+  font-weight: bold;
+}
+.user_email {
+  color: #3d3c3c;
+  font-weight: lighter;
+}
+.badge-pill {
+  display: inline-block;
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1;
+  color: white;
+  background-color: #1f5e79;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+
+}
+.close-btn {
+  box-sizing: content-box;
+  padding: 0.25em 0.25em;
+  color: #ffffff;
+  border: 0;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+.query-screen {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  z-index: 9999;
+  width: 350px;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 13px;
+  box-shadow: 0px 15px 20px rgb(0 0 0 / 10%);
+  visibility: hidden;
+}
+.query-screen.show-chat {
+  -moz-transition: bottom 0.5s linear;
+  -webkit-transition: bottom 0.5s linear;
+  transition: bottom 0.5s linear;
+  visibility: visible;
+}
+.chat-bot-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  z-index: 9999;
+  border-radius: 30px;
+  box-shadow: 0px 10px 15px rgb(0 0 0 / 10%);
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.chat-screen {
+  position: fixed;
+  bottom: 68px;
+  right: 20px;
+  z-index: 9999;
+  width: 350px;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgb(0 0 0 / 10%);
+  visibility: hidden;
+}
+
+.chat-screen.show-chat {
+  -moz-transition: bottom 0.5s linear;
+  -webkit-transition: bottom 0.5s linear;
+  transition: bottom 0.5s linear;
+  visibility: visible;
+  bottom: 82px;
+}
+
+.chat-screen .chat-header, .query-screen .chat-header {
+  background-color: #77B3D4;
+  border-radius: 15px 15px 0 0;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.chat-screen .chat-header .chat-header-title, .query-screen .chat-header .chat-header-title {
+  display: inline-block;
+  width: calc(100% - 50px);
+  color: #fff;
+  font-size: 14px;
+}
+
+.chat-screen .chat-mail, .query-screen .chat-mail {
+  padding: 30px;
+  display: block;
+}
+
+.chat-screen .chat-mail button {
+  background-color: #1f5e79;
+  border: none;
+  padding: 0.58rem 1.25rem;
+  margin-top: 10px;
+  border-radius: 17px;
+}
+
+.chat-screen .chat-body {
+  padding: 25px;
+  display: inline-block;
+  min-height: 382px;
+  max-height: 382px;
+  background: #fbfbfb;
+  overflow-y: auto;
+}
+
+.chat-screen .chat-input {
+  width: 100%;
+  position: relative;
+  margin-bottom: -5px;
+}
+
+.chat-screen .chat-input input {
+  width: 100%;
+  background: #ffffff;
+  padding: 15px 70px 15px 15px;
+  border-radius: 0 0 15px 15px;
+  resize: none;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #f8f8f8;
+  color: #7a7a7a;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+.chat-screen .chat-input .input-action-icon {
+  width: 61px;
+  white-space: nowrap;
+  position: absolute;
+  z-index: 1;
+  top: 15px;
+  right: 15px;
+  text-align: right;
+}
+
+.chat-screen .chat-input .input-action-icon img {
+  display: inline-block;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.chat-screen .chat-body .chat-bubble.me {
+  background-color: #c1daec;
+  color: #000000;
+  border-radius: 15px 0px 15px 15px;
+  float: right;
+  align-self: flex-end;
+  display: table;
+}
+
+.chat-screen .chat-body .chat-bubble {
+  font-size: 12px;
+  padding: 10px 15px;
+  box-shadow: none;
+  display: inline-block;
+  clear: both;
+  margin-bottom: 10px;
+  box-shadow: 0 5px 5px rgb(0 0 0 / 2%);
+}
+
+.chat-screen .chat-body .chat-bubble.you {
+  background-color: #1f5e79;
+  color: #fff;
+  border-radius: 0 15px 15px 15px;
+  align-self: flex-start;
+  display: table;
+}

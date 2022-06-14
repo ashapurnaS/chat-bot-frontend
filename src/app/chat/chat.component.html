@@ -1,0 +1,118 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container">
+    <h3 class="navbar-brand">
+      <img src="./assets/image/chat-icon.svg" width="40" height="40" class="d-inline-block align-top" alt="">
+      ChatBot
+    </h3>
+    <div class="query-icon" *ngIf="isAdmin" (click)="openQuery()">
+      <img src="./assets/image/notifications.png" width="40" height="40" class="d-inline-block align-top">
+    </div>
+  </div>
+</nav>
+<!--Admin Query List Screen-->
+<div class="query-screen" [class.show-chat]="isQueryOpen">
+  <div class="chat-header">
+    <div class="chat-header-title">
+      All Query List
+    </div>
+    <span class="close-btn" style="cursor: pointer;" (click)="closeQuery()"> X </span>
+  </div>
+  <div class="query-list">
+    <ul class="list-group">
+      <li class="list-group-item d-flex flex-column justify-content-between user_list"
+          *ngFor="let user of users" (click)="openQueryChat(user)">
+          <span class="user_name">{{user.name}}</span>
+          <span class="user_email"> {{user.email}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="chat-screen" [class.show-chat]="isQueryChatOpen">
+  <div class="chat-header">
+    <div class="chat-header-title">
+      {{selectedUser?.name}}
+    </div>
+    <span class="close-btn" style="cursor: pointer;" (click)="closeQueryChat()"> X </span>
+  </div>
+  <div class="chat-body">
+    <div class="chat-bubble me">Welcome to chat-Bot. We are online and ready to help.</div>
+    <div class="chat-bubble"
+         *ngFor="let message of messages"
+         [class.me]="message.sender?.email === admin.email"
+         [class.you]="message.sender?.email === selectedUser?.email"
+    >{{message.message}}</div>
+  </div>
+  <div class="chat-input">
+    <input type="text" placeholder="Send a reply..."
+           [(ngModel)]='senderMessage'
+    >
+    <div class="input-action-icon" (click)="sentMessage()">
+      <img src="assets/image/send-icon.png" height="20" width="20">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Client Chat Icon-->
+<div class="container" *ngIf="!isAdmin">
+  <div class="chat-bot-icon" (click)="openModal()">
+    <img src="./assets/image/chat-icon.svg" width="70" height="70" class="d-inline-block align-top" alt="">
+  </div>
+</div>
+
+<!-- Client Chat Screen-->
+
+<div class="chat-screen" [class.show-chat]="isChatOpen">
+  <div class="chat-header">
+    <div class="chat-header-title">
+      Let's resolve your queries!
+    </div>
+    <span class="close-btn" style="cursor: pointer;" (click)="closeModal()"> X </span>
+  </div>
+  <div class="chat-mail text-center" [class.hide]="hasChatStarted">
+    <div class="row">
+      <div class="col-md-12 text-center mb-2">
+        <p>Please fill out the form below to start chatting with us.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Name"
+                 [(ngModel)]='sender.name'
+          >
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group mt-2">
+          <input type="email" class="form-control" placeholder="Email"
+                 [(ngModel)]='sender.email'
+          >
+        </div>
+      </div>
+      <div class="col-md-12">
+        <button class="btn btn-primary btn-rounded btn-block" (click)="startChat()">Start Chat</button>
+      </div>
+    </div>
+  </div>
+  <div class="chat-body" [class.hide]="!hasChatStarted">
+    <div class="chat-bubble you">Welcome to chat-Bot. We are online and ready to help.</div>
+    <div class="chat-bubble"
+         *ngFor="let message of messages"
+         [class.me]="message.sender?.email === sender.email"
+         [class.you]="message.sender?.email === admin.email"
+    >{{message.message}}</div>
+  </div>
+  <div class="chat-input" [class.hide]="!hasChatStarted">
+    <input type="text" placeholder="Type a message..."
+           [(ngModel)]='senderMessage'
+    >
+    <div class="input-action-icon" (click)="sentMessage()">
+      <img src="assets/image/send-icon.png" height="20" width="20">
+    </div>
+  </div>
+
+</div>
